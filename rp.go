@@ -1,8 +1,8 @@
 package rp
 
 import (
-	"github.com/fawni/rp/ipc"
-	"github.com/fawni/rp/rpc"
+	"github.com/brw/rp/ipc"
+	"github.com/brw/rp/rpc"
 )
 
 func NewClient(ID string) (*rpc.Client, error) {

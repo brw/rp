@@ -7,7 +7,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/fawni/rp/ipc"
+	"github.com/brw/rp/ipc"
 )
 
 // Login sends a handshake in the socket and returns an error or nil

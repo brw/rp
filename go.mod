@@ -1,4 +1,4 @@
-module github.com/fawni/rp
+module github.com/brw/rp
 
 go 1.19
 

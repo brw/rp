@@ -1,7 +1,7 @@
-# rp [![Build Status](https://img.shields.io/github/actions/workflow/status/fawni/rp/build.yml?logo=github&branch=master)](https://github.com/fawni/rp/actions)
+# rp [![Build Status](https://img.shields.io/github/actions/workflow/status/brw/rp/build.yml?logo=github&branch=master)](https://github.com/brw/rp/actions)
 
 
-An implementation of Discord's rich presence for Linux, MacOS and Windows in Go. Fork of [hugolgst/rich-go](https://github.com/hugolgst/rich-go).
+An implementation of Discord's rich presence for Linux, MacOS and Windows in Go. Fork of [fawni/rp](https://github.com/fawni/rp) which is a fork of [hugolgst/rich-go](https://github.com/hugolgst/rich-go).
 
 ## Disclaimer
 
@@ -9,10 +9,10 @@ This fork is not meant to be a replacement or a production-ready library. The so
 
 ## Installation
 
-Install `github.com/fawni/rp`:
+Install `github.com/brw/rp`:
 
 ```sh
-$ go get -u github.com/fawni/rp
+$ go get -u github.com/brw/rp
 ```
 
 ## Usage

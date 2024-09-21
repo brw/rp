@@ -1,6 +1,6 @@
 package rpc
 
-import "github.com/fawni/rp/ipc"
+import "github.com/brw/rp/ipc"
 
 type Handshake struct {
 	V        string `json:"v"`

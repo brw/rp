@@ -5,8 +5,8 @@ import (
 	"log"
 	"time"
 
-	"github.com/fawni/rp"
-	"github.com/fawni/rp/rpc"
+	"github.com/brw/rp"
+	"github.com/brw/rp/rpc"
 )
 
 func main() {
@@ -34,7 +34,7 @@ func main() {
 		Buttons: []*rpc.Button{
 			{
 				Label: "GitHub",
-				Url:   "https://github.com/fawni/rp",
+				Url:   "https://github.com/brw/rp",
 			},
 		},
 	}); err != nil {
