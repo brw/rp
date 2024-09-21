@@ -5,6 +5,7 @@ import (
 	"encoding/binary"
 	"net"
 	"os"
+	"time"
 )
 
 type IPC struct {
@@ -77,5 +78,8 @@ func (ipc *IPC) Send(opcode int, payload string) (string, error) {
 		return "", err
 	}
 
-	return ipc.Read(), nil
+	ipc.Socket.SetDeadline(time.Now().Add(time.Second * 2))
+	res := ipc.Read()
+	ipc.Socket.SetDeadline(time.Time{})
+	return res, nil
 }
