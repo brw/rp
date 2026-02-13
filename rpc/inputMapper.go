@@ -6,18 +6,28 @@ import (
 
 // Activity holds the data for discord rich presence
 type Activity struct {
+	// The activity's name
+	Name string
 	// What the player is currently doing
 	Details string
+	// URL to open when clicking on the details text
+	DetailsUrl string
 	// The user's current party status
 	State string
+	// URL to open when clicking on the state text
+	StateUrl string
 	// The id for a large asset of the activity, usually a snowflake
 	LargeImage string
 	// Text displayed when hovering over the large image of the activity
 	LargeText string
+	// URL to open when clicking on the large image
+	LargeUrl string
 	// The id for a small asset of the activity, usually a snowflake
 	SmallImage string
 	// Text displayed when hovering over the small image of the activity
 	SmallText string
+	// URL to open when clicking on the small image
+	SmallUrl string
 	// Information for the current party of the player
 	Party *Party
 	// Unix timestamps for start and/or end of the game
@@ -28,6 +38,8 @@ type Activity struct {
 	Buttons []*Button
 	// The type of the activity, defaults to 0 (Playing) if not set
 	Type ActivityType
+	// Which field is displayed in the status text in the member list
+	StatusDisplayType StatusDisplayType
 }
 
 // Button holds a label and the corresponding URL that is opened on press
@@ -66,7 +78,6 @@ type Secrets struct {
 	Spectate string
 }
 
-/// ActivityType is the type of the activity (Playing, Listening, Watching, Competing)
 type ActivityType int
 
 const (
@@ -76,17 +87,34 @@ const (
 	ActivityTypeCompeting ActivityType = 5
 )
 
+type StatusDisplayType int
+
+const (
+	// "Listening to Spotify"
+	StatusDisplayTypeName StatusDisplayType = 0
+	// "Listening to Rick Astley"
+	StatusDisplayTypeState StatusDisplayType = 1
+	// "Listening to Never Gonna Give You Up"
+	StatusDisplayTypeDetails StatusDisplayType = 2
+)
+
 func mapActivity(activity *Activity) *PayloadActivity {
 	final := &PayloadActivity{
-		Details: activity.Details,
-		State:   activity.State,
+		Name:       activity.Name,
+		Details:    activity.Details,
+		DetailsUrl: activity.DetailsUrl,
+		State:      activity.State,
+		StateUrl:   activity.StateUrl,
 		Assets: PayloadAssets{
 			LargeImage: activity.LargeImage,
 			LargeText:  activity.LargeText,
+			LargeUrl:   activity.LargeUrl,
 			SmallImage: activity.SmallImage,
 			SmallText:  activity.SmallText,
+			SmallUrl:   activity.SmallUrl,
 		},
-		Type: activity.Type,
+		Type:              activity.Type,
+		StatusDisplayType: activity.StatusDisplayType,
 	}
 
 	if activity.Timestamps != nil && activity.Timestamps.Start != nil {

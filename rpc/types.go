@@ -19,21 +19,28 @@ type Args struct {
 }
 
 type PayloadActivity struct {
-	Details    string             `json:"details,omitempty"`
-	State      string             `json:"state,omitempty"`
-	Assets     PayloadAssets      `json:"assets,omitempty"`
-	Party      *PayloadParty      `json:"party,omitempty"`
-	Timestamps *PayloadTimestamps `json:"timestamps,omitempty"`
-	Secrets    *PayloadSecrets    `json:"secrets,omitempty"`
-	Buttons    []*PayloadButton   `json:"buttons,omitempty"`
-	Type       ActivityType       `json:"type,omitempty"`
+	Name              string             `json:"name,omitempty"`
+	Platform          string             `json:"platform,omitempty"`
+	Details           string             `json:"details,omitempty"`
+	DetailsUrl        string             `json:"details_url,omitempty"`
+	State             string             `json:"state,omitempty"`
+	StateUrl          string             `json:"state_url,omitempty"`
+	Assets            PayloadAssets      `json:"assets,omitempty"`
+	Party             *PayloadParty      `json:"party,omitempty"`
+	Timestamps        *PayloadTimestamps `json:"timestamps,omitempty"`
+	Secrets           *PayloadSecrets    `json:"secrets,omitempty"`
+	Buttons           []*PayloadButton   `json:"buttons,omitempty"`
+	Type              ActivityType       `json:"type,omitempty"`
+	StatusDisplayType StatusDisplayType  `json:"status_display_type,omitempty"`
 }
 
 type PayloadAssets struct {
 	LargeImage string `json:"large_image,omitempty"`
 	LargeText  string `json:"large_text,omitempty"`
+	LargeUrl   string `json:"large_url,omitempty"`
 	SmallImage string `json:"small_image,omitempty"`
 	SmallText  string `json:"small_text,omitempty"`
+	SmallUrl   string `json:"small_url,omitempty"`
 }
 
 type PayloadParty struct {
